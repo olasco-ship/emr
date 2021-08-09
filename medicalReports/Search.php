@@ -87,7 +87,7 @@ $user = User::find_by_id($session->user_id);
             <div class="row">
                 <div class="col-lg-12">
                     <p>This is to certify that I have examined the above candidate and found him/her to be physically and mentally
-                        fit for further studies.</p>
+                        fit for pilgrimage.</p>
                 </div>
             </div>
 
