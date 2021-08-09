@@ -142,7 +142,7 @@ require('../layout/header.php');
                     <label>WBC</label>
                 </div>
                 <div class="col-md-3">
-                    <input type="text" name="wbc" class="form-control" id="bg" value="<?php echo $data->wbc ?>">
+                    <input type="text" name="wbc" class="form-control" id="bg" value="<?php echo $data->WBC ?>">
                 </div>
             </div>
 
@@ -212,7 +212,7 @@ require('../layout/header.php');
                     <label>VDRL:</label>
                 </div>
                 <div class="col-md-7 mb-4">
-                    <input type="text" name="vdrl" class="form-control" value="" >
+                    <input type="text" name="vdrl" class="form-control" value="<?php echo $data->VDRL ?>" >
                 </div>
             </div>
 
@@ -222,7 +222,7 @@ require('../layout/header.php');
                     <label>HIV Test:</label>
                 </div>
                 <div class="col-md-7 mb-4">
-                    <input type="text" name="hiv" class="form-control" value="<?php echo $data->hiv ?>" required/>
+                    <input type="text" name="hiv" class="form-control" value="<?php echo $data->HIV ?>" required/>
                 </div>
             </div>
 
@@ -240,7 +240,7 @@ require('../layout/header.php');
                     <label>HCV:</label>
                 </div>
                 <div class="col-md-7 mb-4">
-                    <input type="text" name="hcv" class="form-control" value="<?php echo $data->HCVs ?>" required/>
+                    <input type="text" name="hcv" class="form-control" value="<?php echo $data->HCV ?>" required/>
                 </div>
             </div>
 
