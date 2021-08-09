@@ -215,7 +215,7 @@ require('../layout/header.php');
                     <label>Heptitis C:</label>
                 </div>
                 <div class="col-md-7 mb-4">
-                    <input type="text" name="hepatitis" class="form-control" value="<?php echo $data->HCV ?>">
+                    <input type="text" name="hepatitis" class="form-control" value="">
                 </div>
             </div>
 
