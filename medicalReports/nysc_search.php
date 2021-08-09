@@ -84,7 +84,7 @@ require('../layout/header.php');
             <div class="row">
                 <div class="col-lg-12">
                     <p>This is to certify that I have examined the above candidate and found him/her to be physically and mentally
-                        fit for the employment.</p>
+                        fit for nysc programme.</p>
                 </div>
             </div>
 
