@@ -83,7 +83,7 @@ $user = User::find_by_id($session->user_id);
                     <input type="text" name="patient_name" class="form-control" value="<?php echo $patient->title. " ".  $patient->first_name . " " . "$patient->last_name" ?>">
                 </div>
             </div>
-            <center><h3><u>MEDICAL CERTIFICATE OF FITNESS FOR ADMISSION</u></h3></center>
+            <center><h3><u>MEDICAL CERTIFICATE OF FITNESS FOR PILGRIMAGE</u></h3></center>
             <div class="row">
                 <div class="col-lg-12">
                     <p>This is to certify that I have examined the above candidate and found him/her to be physically and mentally
