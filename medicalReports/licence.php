@@ -97,7 +97,7 @@ require('../layout/header.php');
             <div class="row">
                 <div class="col-lg-12">
                     <p>This is to certify that I have examined the above candidate and found him/her to be physically and mentally
-                        fit for further studies.</p>
+                        fit.</p>
                 </div>
             </div>
 
