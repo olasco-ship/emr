@@ -1,3 +1,17 @@
+<?php
+require_once("../includes/initialize.php");
+
+if (!$session->is_logged_in()) {
+    redirect_to(emr_lucid . "/index.php");
+}
+
+$user = User::find_by_id($session->user_id);
+
+
+require('../layout/header.php');
+?>
+
+
 <div id="main-content">
 <div class="container-fluid">
 <div class="block-header">
@@ -20,8 +34,7 @@
 <div class="body">
         <div class="row d-flex">
     <a href="../consultant/index.php" style="font-size: large">&laquo; Back</a>
-    <form action="nysc_search.php" method="POST">
-        <input type="hidden" name="nysc_search.phpid" value="">
+    <form action="admission_search.php" method="POST">
         <input type="text" name="search_id" placeholder="Search" value="">
         <button type="submit" name="search_btn" class="btn btn-primary">Search</button>
     </form>
@@ -97,7 +110,7 @@
                                             </div>
 
                                             <div class="col-md-4">
-                                                <input type="text" name="pcv" class="form-control" id="pcv" value="<?php echo $decoded->PCV ?>">
+                                                <input type="text" name="pcv" class="form-control" id="pcv" value="<?php echo $data->PCV ?>">
                                             </div>
 
                                             <div class="offset-1 col-md-1">
@@ -105,7 +118,7 @@
                                             </div>
 
                                             <div class="col-md-4">
-                                                <input type="text" name="wbc" class="form-control" id="wbc" value="<?php echo $decoded->WBC ?>">
+                                                <input type="text" name="wbc" class="form-control" id="wbc" value="<?php echo $data->WBC ?>">
                                             </div>
                                         </div>
 
@@ -115,7 +128,7 @@
                                             </div>
 
                                             <div class="col-md-3">
-                                                <input type="text" name="bg" class="form-control" id="bg" value="<?php echo $decoded->BloodGroup ?>">
+                                                <input type="text" name="bg" class="form-control" id="bg" value="<?php echo $data->BloodGroup ?>">
                                             </div>
 
                                             <div class="offset-1 col-md-1">
@@ -123,7 +136,7 @@
                                             </div>
 
                                             <div class="col-md-4">
-                                                <input type="text" name="genotype" class="form-control" id="genotype" value="<?php echo $decoded->HbGenotype ?>">
+                                                <input type="text" name="genotype" class="form-control" id="genotype" value="<?php echo $data->HbGenotype ?>">
                                             </div>
                                         </div>
 
@@ -147,7 +160,7 @@
                                             </div>
 
                                             <div class="col-md-3">
-                                                <input type="text" name="urinary_protein" class="form-control" id="urinary_protein" value="<?php echo $data->urine_protein ?>">
+                                                <input type="text" name="urinary_protein" class="form-control" id="urinary_protein" value="<?php echo $decoded->urine_protein ?>">
                                             </div>
 
                                             <div class="offset-1 col-md-1">
@@ -155,15 +168,25 @@
                                             </div>
 
                                             <div class="col-md-4">
-                                                <input type="text" name="urinary_glucose" class="form-control" id="urinary_glucose" value="<?php echo $data->urine_glucose ?>">
+                                                <input type="text" name="urinary_glucose" class="form-control" id="urinary_glucose" value="<?php echo $decoded->urine_glucose ?>">
                                             </div>
                                         </div>
+
+                                         <div class="row">
+                <div class="offset-1 col-md-4">
+                    <label>Pregnancy Test:</label>
+                </div>
+                <div class="col-md-7 mb-4">
+                    <input type="text" name="preg_test" class="form-control" value="<?php echo $data->PT ?>" required/>
+                </div>
+            </div>
+
                                         <div class="row">
                                             <div class="offset-1 col-md-4">
                                                 <label>HIV Test:</label>
                                             </div>
                                             <div class="col-md-7">
-                                                <textarea name="hiv" class="form-control" value="<?php echo $decoded->hiv ?>"></textarea>
+                                                <textarea name="hiv" class="form-control" value="<?php echo $data->HIV ?>"></textarea>
                                             </div>
                                         </div>
 
@@ -174,26 +197,12 @@
                                                 <label>Hepatitis B Surface Antigen:</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <textarea name="hepatitis_b" class="form-control" value="<?php echo $decoded->HBsAg ?>"></textarea>
+                                                <textarea name="hepatitis_b" class="form-control" value="<?php echo $data->HBsAg ?>"></textarea>
                                             </div>
                                         </div>
 
-                                        <div class="row">
-                                            <div class="offset-1 col-md-1">
-                                                <label>Code No:</label>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <input type="text" name="code_no" class="form-control" value="">
-                                            </div>
-
-                 <div class="row">
-                <div class="offset-1 col-md-4">
-                    <label>Pregnancy Test:</label>
-                </div>
-                <div class="col-md-7 mb-4">
-                    <input type="text" name="preg_test" class="form-control" value="<?php echo $data->PT ?>" required/>
-                </div>
-            </div>
+                                        
+                
 
              <div class="row">
             <div class="offset-1 col-md-9">
@@ -212,6 +221,15 @@
             </div>
         <?php } ?>
         </div>
+
+        <div class="row">
+        <div class="offset-1 col-md-1">
+            <label>Code No:</label>
+        </div>
+        <div class="col-md-3">
+            <input type="text" name="code_no" class="form-control" value="<?php echo $patient->folder_number ?>">
+        </div>
+
 
                                         <br>
 
